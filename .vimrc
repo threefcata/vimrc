@@ -60,18 +60,21 @@ filetype plugin on
 filetype plugin indent on
 filetype indent on
 set grepprg=grep\ -nH\ $*
-let g:tex_flavor = "latex"
+
+let g:tex_flavor = "pdftex"
+let g:Tex_DefaultTargetFormat = "pdf"
+let g:Tex_MultipleCompileFormats="pdf,bib,pdf"
+let g:Tex_GotoError = 0
+let g:Tex_ShowErrorContext = 0
+let g:tex_comment_nospell = 1
+
 if has("macunix")
-    let g:Tex_MultipleCompileFormats="pdf,bib,pdf"
     let g:Tex_TreatMacViewersAsUNIX = 1
     let g:Tex_ExecuteUNIXViewerInForeground = 1
-    let g:tex_GotoError = 0
-    let g:tex_comment_nospell = 1
     let g:Tex_ViewRule_ps = 'open -a Skim'
     let g:Tex_ViewRule_pdf = 'open -a /Applications/Skim.app'
     let g:Tex_ViewRule_dvi = 'open -a /Applications/Skim.app'
 elseif has("unix")
-    let g:Tex_DefaultTargetFormat = "pdf"
     let g:Tex_ViewRule_pdf = "okular"
 endif
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
