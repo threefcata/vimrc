@@ -14,16 +14,30 @@ if has("unix")
     colorscheme desert
 endif
 
+filetype plugin on
+filetype plugin indent on
+filetype indent on
+
+if version >= 700
+  set omnifunc=syntaxcomplete#Complete
+  set completeopt=menuone,menu,longest
+  let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+  highlight   clear
+  highlight   Pmenu         ctermfg=0 ctermbg=2
+  highlight   PmenuSel      ctermfg=0 ctermbg=7
+  highlight   PmenuSbar     ctermfg=7 ctermbg=0
+  highlight   PmenuThumb    ctermfg=0 ctermbg=7
+end
+
 if has("gui_running")
   if has("macunix")
     set guifont=Monaco:h14 " use this font
     set lines=70 " height = 50 lines
     set columns=90 " width = 100 columns
-    set tw=90
   elseif has("unix")
     set guifont=Lucida\ Console:h10 " use this font
     set lines=70 " height = 50 lines
-    set columns=107 " width = 100 columns
+    set columns=100 " width = 100 columns
   endif
 endif
 set tw=90
@@ -56,9 +70,6 @@ set langmenu=none
 " Tags related ==================================================================
 "let Tlist_Ctags_Cmd = "ctags.exe"
 set tags=./tags,tags;
-filetype plugin on
-filetype plugin indent on
-filetype indent on
 set grepprg=grep\ -nH\ $*
 
 let g:tex_flavor = "pdftex"
@@ -87,7 +98,7 @@ set incsearch
 set hlsearch
 " Keymaps =======================================================================
 nnoremap <c-l> <c-l>:noh<return>
-"nnoremap :TlistToggle
+nnoremap <F12> :TlistToggle<return>
 "inoremap ( ()i
 "inoremap " ""i
 "inoremap ‘ "i
