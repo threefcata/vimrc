@@ -108,7 +108,7 @@ nnoremap <F12> :TlistToggle<return>
 "imap vv $
 "imap .. ->
 " Autocmd for different behavior based on filetype==============================
-autocmd FileType tex set nocindent nosmartindent noautoindent nocursorline tw=90
+autocmd FileType tex set spell nocindent nosmartindent noautoindent nocursorline tw=90
 " Disable logging of the JS indent plugin
 let g:js_indent_log = 0
 
