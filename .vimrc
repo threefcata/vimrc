@@ -1,13 +1,13 @@
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+"runtime bundle/vim-pathogen/autoload/pathogen.vim
+"execute pathogen#infect()
 
 "NERDTree related
 "
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"map <C-n> :NERDTreeToggle<CR>
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 syn on " Syntax highlighting on
 if has("unix")
@@ -101,7 +101,7 @@ nnoremap <c-l> <c-l>:noh<return>
 nnoremap <F12> :TlistToggle<return>
 "inoremap ( ()i
 "inoremap " ""i
-"inoremap ‘ "i
+"inoremap ¡® "i
 "inoremap [ []i
 "inoremap { {}i
 " for php:
@@ -122,3 +122,9 @@ function! LoadCscope()
   endif
 endfunction
 au BufEnter /* call LoadCscope()
+
+set csre
+
+" open ctag in tab/vertical split
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <leader><C-\> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
