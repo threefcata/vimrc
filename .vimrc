@@ -37,7 +37,7 @@ if has("gui_running")
   elseif has("unix")
     set guifont=Lucida\ Console:h10 " use this font
     set lines=70 " height = 50 lines
-    set columns=100 " width = 100 columns
+    set columns=90 " width = 100 columns
   endif
 endif
 set tw=90
@@ -116,9 +116,15 @@ function! LoadCscope()
   let db = findfile("cscope.out", ".;")
   if (!empty(db))
     let path = strpart(db, 0, match(db, "/cscope.out$"))
-    set nocscopeverbose " suppress 'duplicate connection' error
+    set nocscopeverbose             " suppress 'duplicate connection' error
     exe "cs add " . db . " " . path
     set cscopeverbose
   endif
 endfunction
 au BufEnter /* call LoadCscope()
+
+"function! UpdateTags()
+"  execute ":!ctags -R --languages=C++ --c++-kinds=+p --fields=+iaS --extra=+q ./"
+"  echohl StatusLine | echo "C/C++ tag updated" | echohl None
+"endfunction
+"nnoremap <F4> :call UpdateTags()
