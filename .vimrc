@@ -1,13 +1,13 @@
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+"runtime bundle/vim-pathogen/autoload/pathogen.vim
+"execute pathogen#infect()
 
 "NERDTree related
 "
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"map <C-n> :NERDTreeToggle<CR>
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 syn on " Syntax highlighting on
 if has("unix")
@@ -101,14 +101,14 @@ nnoremap <c-l> <c-l>:noh<return>
 nnoremap <F12> :TlistToggle<return>
 "inoremap ( ()i
 "inoremap " ""i
-"inoremap ‘ "i
+"inoremap ¡® "i
 "inoremap [ []i
 "inoremap { {}i
 " for php:
 "imap vv $
 "imap .. ->
 " Autocmd for different behavior based on filetype==============================
-autocmd FileType tex set nocindent nosmartindent noautoindent nocursorline tw=90
+autocmd FileType tex set spell nocindent nosmartindent noautoindent nocursorline tw=90
 " Disable logging of the JS indent plugin
 let g:js_indent_log = 0
 
@@ -128,3 +128,4 @@ au BufEnter /* call LoadCscope()
 "  echohl StatusLine | echo "C/C++ tag updated" | echohl None
 "endfunction
 "nnoremap <F4> :call UpdateTags()
+set csre
