@@ -1,13 +1,16 @@
-"runtime bundle/vim-pathogen/autoload/pathogen.vim
-"execute pathogen#infect()
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
 
-"NERDTree related
-"
-"map <C-n> :NERDTreeToggle<CR>
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" NERDTree related
 
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" YouCompleteMe
+let g:ycm_auto_trigger = 1   
 
 syn on " Syntax highlighting on
 if has("unix")
@@ -67,9 +70,13 @@ else
     autocmd BufEnter * silent! lcd %:p:h:gs/ /\ /
 endif
 set langmenu=none
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$/
 " Tags related ==================================================================
 "let Tlist_Ctags_Cmd = "ctags.exe"
 set tags=./tags,tags;
+set tags+=~/.vim/tags/c
+"set tags+=~/.vim/tags/c++
 set grepprg=grep\ -nH\ $*
 
 let g:tex_flavor = "pdftex"
@@ -123,9 +130,9 @@ function! LoadCscope()
 endfunction
 au BufEnter /* call LoadCscope()
 
-"function! UpdateTags()
-"  execute ":!ctags -R --languages=C++ --c++-kinds=+p --fields=+iaS --extra=+q ./"
-"  echohl StatusLine | echo "C/C++ tag updated" | echohl None
-"endfunction
-"nnoremap <F4> :call UpdateTags()
+function! UpdateTags()
+  execute ":!ctags -R --languages=C,C++ --c++-kinds=+p --fields=+iaS --extra=+q ./"
+  echohl StatusLine | echo "C/C++ tag updated" | echohl None
+endfunction
+nnoremap <F4> :call UpdateTags()
 set csre
