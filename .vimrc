@@ -60,6 +60,7 @@ set backspace=indent,eol,start " backspace deletes indent, eol and start lineset
 set cinoptions=l1
 nnoremap H gT
 nnoremap L gt
+set fo+=mM
 " Display options ===============================================================
 set cursorline
 " hi CursorLine cterm=NONE ctermbg=black guibg=black
@@ -99,6 +100,8 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 let php_sql_query = 1
 let php_htmlInStrings = 1
 " File operations ===============================================================
+set hidden
+set confirm
 set nobackup
 " Search options ================================================================
 set incsearch
