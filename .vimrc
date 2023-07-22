@@ -108,6 +108,7 @@ let php_htmlInStrings = 1
 set hidden
 set confirm
 set nobackup
+set hidden
 " Search options ================================================================
 set incsearch
 set hlsearch
@@ -134,6 +135,9 @@ function! LoadCscope()
     set nocscopeverbose             " suppress 'duplicate connection' error
     exe "cs add " . db . " " . path
     set cscopeverbose
+    set cscopetag
+    set cst
+    set csto=0
   endif
 endfunction
 au BufEnter /* call LoadCscope()
