@@ -20,6 +20,11 @@ endif
 filetype plugin on
 filetype plugin indent on
 filetype indent on
+autocmd FileType markdown setlocal nocindent
+autocmd FileType text setlocal nocindent
+autocmd FileType latex setlocal nocindent
+autocmd FileType asciidoc setlocal nocindent
+autocmd FileType asciidoc setlocal fo=want 
 
 if version >= 700
   set omnifunc=syntaxcomplete#Complete
