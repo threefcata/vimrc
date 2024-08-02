@@ -25,6 +25,7 @@ autocmd FileType text setlocal nocindent
 autocmd FileType latex setlocal nocindent
 autocmd FileType asciidoc setlocal nocindent
 autocmd FileType asciidoc setlocal fo=want 
+autocmd FileType asciidoc hi clear ExtraWhitespace
 
 if version >= 700
   set omnifunc=syntaxcomplete#Complete
@@ -148,3 +149,27 @@ function! UpdateTags()
 endfunction
 nnoremap <F4> :call UpdateTags()
 set csre
+
+" Aligns backslash characters at the end of lines.
+" Useful when writing multiline macros or multiline strings.
+function AlignBackslash()
+   :silent! s@\s\+\\$@ \\@
+   :silent! s/s*\\$/\=repeat(' ', 80-col('.')).'\'
+   :let @/ = ""
+endfunction
+
+function RemoveDuplicateBackslash()
+   :silent! s/\\\\$/\\/g
+endfunction
+
+" In normal mode align the whole file.
+nmap \\ mxggVG:call RemoveDuplicateBackslash()<cr>ggVG:call AlignBackslash()<cr>'x
+
+" In visual select mode align selected lines.
+vmap \\ :call RemoveDuplicateBackslash()<cr>gv:call AlignBackslash()<cr>
+
+" Insert backslash at the end of current line and align it
+nmap <c-\> A\<esc>:call AlignBackslash()<cr>
+
+" Insert backslash at the end of selected lines and align them
+vmap <c-\> :norm A\<esc>gv:call AlignBackslash()<cr>
