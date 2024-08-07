@@ -23,7 +23,7 @@ filetype indent on
 autocmd FileType markdown setlocal nocindent
 autocmd FileType text setlocal nocindent
 autocmd FileType latex setlocal nocindent
-autocmd FileType asciidoc setlocal nocindent
+autocmd FileType asciidoc setlocal nocindent noautoindent nosmartindent
 autocmd FileType asciidoc setlocal fo=want 
 autocmd FileType asciidoc hi clear ExtraWhitespace
 
