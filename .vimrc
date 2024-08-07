@@ -27,6 +27,13 @@ autocmd FileType asciidoc setlocal nocindent
 autocmd FileType asciidoc setlocal fo=want 
 autocmd FileType asciidoc hi clear ExtraWhitespace
 
+let g:ale_linters = {'rust': ['analyzer']}
+augroup filetype_rust
+    au!
+    au BufRead,BufNewFile *.rs nnoremap K :ALEHover<CR>
+    au BufRead,BufNewFile *.rs nnoremap <C-]> :ALEGoToDefinition<CR>
+augroup END
+
 if version >= 700
   set omnifunc=syntaxcomplete#Complete
   set completeopt=menuone,menu,longest
