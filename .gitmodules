@@ -10,3 +10,6 @@
 [submodule "bundle/cscope-maps"]
 	path = bundle/cscope-maps
 	url = https://github.com/joe-skb7/cscope-maps.git
+[submodule "bundle/ale"]
+	path = bundle/ale
+	url = https://github.com/dense-analysis/ale

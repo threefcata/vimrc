@@ -1,0 +1,151 @@
+decorations = "transparent"
+general = "Alacritty"
+instance = "Alacritty"
+title = "Alacritty"
+
+[colors.bright]
+black = "0x202020"
+blue = "0x809fff"
+cyan = "0x80ffdf"
+green = "0x9fff80"
+magenta = "0xdf80ff"
+red = "0xff809f"
+white = "0xffffff"
+yellow = "0xffdf80"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x0040ff"
+cyan = "0x00ffbf"
+green = "0x40ff00"
+magenta = "0xbf00ff"
+red = "0xff0040"
+white = "0xdfdfdf"
+yellow = "0xffbf00"
+
+[colors.primary]
+background = "0x000000"
+foreground = "0xdfdfdf"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 15.0
+
+[font.bold]
+family = "Menlo"
+style = "Bold"
+
+[font.bold_italic]
+family = "Menlo"
+style = "Bold Italic"
+
+[font.italic]
+family = "Menlo"
+style = "Italic"
+
+[font.normal]
+family = "Menlo"
+style = "Regular"
+
+[font.offset]
+x = 1
+y = 1
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "N"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "PasteSelection"
+key = "Insert"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "Paste"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Copy"
+
+[[keyboard.bindings]]
+action = "ClearLogNotice"
+key = "L"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\f"
+key = "L"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "Home"
+mode = "~Alt"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "End"
+mode = "~Alt"
+mods = "Shift"
+
+[scrolling]
+history = 5000
+
+[window]
+opacity = 0.9
+
+[window.padding]
+x = 6
+y = 6
