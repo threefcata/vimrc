@@ -27,13 +27,6 @@ autocmd FileType asciidoc setlocal nocindent noautoindent nosmartindent
 autocmd FileType asciidoc setlocal fo=want 
 autocmd FileType asciidoc hi clear ExtraWhitespace
 
-let g:ale_linters = {'rust': ['analyzer']}
-augroup filetype_rust
-    au!
-    au BufRead,BufNewFile *.rs nnoremap K :ALEHover<CR>
-    au BufRead,BufNewFile *.rs nnoremap <C-]> :ALEGoToDefinition<CR>
-augroup END
-
 if version >= 700
   set omnifunc=syntaxcomplete#Complete
   set completeopt=menuone,menu,longest
@@ -92,6 +85,16 @@ set tags=./tags,tags;
 set tags+=~/.vim/tags/c
 "set tags+=~/.vim/tags/c++
 set grepprg=grep\ -nH\ $*
+
+let g:ale_linters = {'rust': ['analyzer']}
+augroup filetype_rust
+    if tagfiles() == []
+        au!
+        au BufRead,BufNewFile *.rs nnoremap K :ALEHover<CR>
+        au BufRead,BufNewFile *.rs nnoremap <C-]> :ALEGoToDefinition<CR>
+    endif
+augroup END
+
 
 let g:tex_flavor = "pdftex"
 let g:Tex_DefaultTargetFormat = "pdf"
