@@ -87,6 +87,7 @@ set tags+=~/.vim/tags/c
 set grepprg=grep\ -nH\ $*
 
 let g:ale_linters = {'rust': ['analyzer']}
+let g:ale_linters_explicit = 1
 augroup filetype_rust
     if tagfiles() == []
         au!
