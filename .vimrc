@@ -25,7 +25,7 @@ autocmd FileType text setlocal nocindent
 autocmd FileType latex setlocal nocindent
 autocmd FileType asciidoc setlocal nocindent noautoindent nosmartindent
 autocmd FileType asciidoc setlocal fo=want 
-autocmd FileType asciidoc hi clear ExtraWhitespace
+" autocmd FileType asciidoc hi clear ExtraWhitespace
 
 if version >= 700
   set omnifunc=syntaxcomplete#Complete
